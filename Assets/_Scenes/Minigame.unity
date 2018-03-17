@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57f8034c76a6467da33240d14b9fedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  Countdown3d: {fileID: 828044850}
 --- !u!1001 &797471614
 Prefab:
   m_ObjectHideFlags: 0
@@ -544,8 +544,8 @@ TextMesh:
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
@@ -595,7 +595,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 828044850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 3, z: 5}
+  m_LocalPosition: {x: 0, y: 3, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -613,7 +613,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CountdownFrom: 3
-  CountdownText: {fileID: 0}
 --- !u!114 &828044855
 MonoBehaviour:
   m_ObjectHideFlags: 0
