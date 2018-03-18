@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Playercontroller : MonoBehaviour {
 
-	private float speed;
+	public static float speed;
 	private float distToGround;
 	private float i;
+	public static int boltcount;
 	private Rigidbody rb;
 	private Collider m_Collider;
 	public GameObject Countdown3d;
@@ -20,7 +21,8 @@ public class Playercontroller : MonoBehaviour {
 		m_Collider = GetComponent<Collider>();
 
 		distToGround = m_Collider.bounds.extents.y;
-		speed = 15.0f;
+		speed = 7.0f;
+		boltcount = 1; // although it is zero at first
 	}
 
 	bool IsGrounded(){
@@ -45,7 +47,7 @@ public class Playercontroller : MonoBehaviour {
 
 		if (Countdown3d.GetComponent<TextMesh> ().text == "START!!") 
 		{
-			rb.AddForce (fixedmovement * speed);
+			rb.AddForce (fixedmovement * speed *boltcount);
 
 //			while (Input.GetKeyDown (KeyCode.UpArrow)) {
 //				i = i + 1;
@@ -75,6 +77,15 @@ public class Playercontroller : MonoBehaviour {
 		{ 
 			rb.AddForce (transform.right*speed);
 
+		}
+
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag ("yellowbolt")) {
+			other.gameObject.SetActive (false);
+			boltcount = boltcount + 10;
 		}
 
 	}

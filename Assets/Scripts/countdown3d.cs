@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class countdown3d : MonoBehaviour {
 
-	[SerializeField]
+//	[SerializeField]
 //	public float CountdownFrom;
 	private float CountdownFrom;
-	[SerializeField]
+	private float Timer;
+//	[SerializeField]
 //	public Text CountdownText;
 //	public GameObject 3D
+	public Text Counttime;
 
 	void Start() {
 //		if (CountdownText == null) {
 //			Debug.LogError("STATUS INDICATOR: No text object referenced!");
 			GetComponent<TextMesh>().text = "Ready";
 		CountdownFrom = 5.0f;
+		Counttime.text = "Time: 0 s";
 //		}
 	}
 	void Update()
@@ -33,6 +36,9 @@ public class countdown3d : MonoBehaviour {
 		{
 //			TimeUp();
 			GetComponent<TextMesh>().text = "START!!";
+			Timer += Time.deltaTime;
+			Counttime.text = "Time: " +Timer.ToString ("0.00") + " s";
+
 		}
 	}
 
