@@ -6,6 +6,7 @@ TagManager:
   tags:
   - yellowbolt
   - goal
+  - block
   layers:
   - Default
   - TransparentFX

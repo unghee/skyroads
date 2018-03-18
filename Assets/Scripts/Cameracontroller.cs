@@ -11,8 +11,8 @@ public class Cameracontroller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		moreOffset [0] = 0;
-		moreOffset [1] = 0;
-		moreOffset [2] = -10;
+		moreOffset [1] = 5;
+		moreOffset [2] = -15;
 	
 		offset = transform.position - player.transform.position + moreOffset;
 	}

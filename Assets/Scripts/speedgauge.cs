@@ -28,7 +28,7 @@ public class speedgauge : MonoBehaviour {
 ////		}
 //	}
 	void Update () {
-		fillImg.fillAmount  =(float)Playercontroller.boltcount/30;
-		print (Playercontroller.boltcount);
+		fillImg.fillAmount  =(float)Playercontroller.boltcount/3;
+		print (Playercontroller.boltcount/3);
 	}
 }

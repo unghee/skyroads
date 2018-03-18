@@ -21,8 +21,8 @@ public class Playercontroller : MonoBehaviour {
 		m_Collider = GetComponent<Collider>();
 
 		distToGround = m_Collider.bounds.extents.y;
-		speed = 7.0f;
-		boltcount = 1; // although it is zero at first
+		speed = 5.0f;
+		boltcount = 0; 
 	}
 
 	bool IsGrounded(){
@@ -40,14 +40,14 @@ public class Playercontroller : MonoBehaviour {
 		Vector3 fixedmovement = new Vector3 (0, 0.0f, 1);
 		Vector3 jumpmovement = new Vector3 (0, 1, 0);
 		Vector3 Right = new Vector3 (20, 0, 0);
-		Vector3 jumpLeft = new Vector3 (-3, 5, 0);
+		Vector3 Left = new Vector3 (-20, 0, 0);
 
 
-//		rb.AddForce (movement*speed);
+		rb.AddForce (movement*speed*2);
 
 		if (Countdown3d.GetComponent<TextMesh> ().text == "START!!") 
 		{
-			rb.AddForce (fixedmovement * speed *boltcount);
+			rb.AddForce (fixedmovement * speed *(1+0.3f*(boltcount+1)));
 
 //			while (Input.GetKeyDown (KeyCode.UpArrow)) {
 //				i = i + 1;
@@ -67,17 +67,18 @@ public class Playercontroller : MonoBehaviour {
 
 		}
 
-		if (Input.GetKey (KeyCode.RightArrow) && IsGrounded()) 
-		{ 
-			rb.AddForce (transform.right*speed);
+//		if (Input.GetKeyDown (KeyCode.RightArrow) && IsGrounded()) 
+//		{ 
+//			rb.AddForce (transform.right*speed);
+//			rb.AddForce (movement);
 
-		}
+//		}
 //
-		if (Input.GetKey (KeyCode.LeftArrow) && IsGrounded()) 
-		{ 
-			rb.AddForce (transform.right*speed);
+//		if (Input.GetKeyDown (KeyCode.LeftArrow) && IsGrounded()) 
+//		{ 
+//			rb.AddForce (-transform.right*speed);
 
-		}
+//		}
 
 	}
 
@@ -85,8 +86,12 @@ public class Playercontroller : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("yellowbolt")) {
 			other.gameObject.SetActive (false);
-			boltcount = boltcount + 10;
+			boltcount = boltcount + 1;
 		}
+//		if (other.gameObject.CompareTag ("speedforward")) {
+//			other.gameObject.SetActive (false);
+//
+//		}
 
 	}
 
